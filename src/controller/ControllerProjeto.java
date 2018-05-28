@@ -62,5 +62,11 @@ public class ControllerProjeto {
         rs = DAOProjeto.buscarHorasProjetos();                
         return rs;
     }
+    
+    public static ResultSet buscarAtividadesRecursos() throws SQLException, ClassNotFoundException {
+        ResultSet rs;
+        rs = DAOProjeto.buscarAtividadesRecursos();                
+        return rs;
+    }
 
 }//Fim da classe ControllerProjeto.

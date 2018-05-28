@@ -4,7 +4,6 @@ package view;
 import controller.ControllerRecurso;
 import controller.ControllerAtividade;
 import controller.ControllerProjeto;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -15,10 +14,8 @@ import javax.swing.JDialog;
 import model.User;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JRResultSetDataSource;
-import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.view.JasperViewer;
 
 /**
@@ -191,7 +188,7 @@ public class ViewMenuRelatorio extends javax.swing.JFrame {
         painelBotoesLayout.setHorizontalGroup(
             painelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painelBotoesLayout.createSequentialGroup()
-                .addGap(36, 36, 36)
+                .addGap(33, 33, 33)
                 .addGroup(painelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(painelBotoesLayout.createSequentialGroup()
                         .addComponent(btPercentual, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -203,26 +200,27 @@ public class ViewMenuRelatorio extends javax.swing.JFrame {
                             .addComponent(btProjetoRecurso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(39, 39, 39)
                         .addGroup(painelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(btOrcamento, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
-                            .addComponent(btProjeto, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGap(26, 26, 26))
+                            .addComponent(btOrcamento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btProjeto, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(29, 29, 29))
         );
         painelBotoesLayout.setVerticalGroup(
             painelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painelBotoesLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addGap(19, 19, 19)
                 .addGroup(painelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btPercentual, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btRecurso, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(painelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btProjeto, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(painelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(painelBotoesLayout.createSequentialGroup()
+                        .addGroup(painelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btProjeto, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btHoraProjeto, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(btOrcamento, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btProjetoRecurso, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(painelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btOrcamento, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btHoraProjeto, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         painelCabNomeRE.setBackground(new java.awt.Color(255, 255, 255));
@@ -316,7 +314,7 @@ public class ViewMenuRelatorio extends javax.swing.JFrame {
                 .addComponent(painelCabNomeRE, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addComponent(painelBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addComponent(btMenu)
                 .addContainerGap())
         );
@@ -349,28 +347,28 @@ public class ViewMenuRelatorio extends javax.swing.JFrame {
 
     private void btProjetoRecursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btProjetoRecursoActionPerformed
         ResultSet rs;
-        try { 
+        try {
             JDialog viewer = new JDialog(new javax.swing.JFrame(),"Visualização do Relatório", true);
             Map parametros = new HashMap();
             
-            rs = ControllerProjeto.buscarProjetosRecursos();
+            //rs = ControllerRecurso.buscarTodosFuncionarios();
+            rs = ControllerRecurso.buscarHorasEstimadasEmProjetos();
             JRResultSetDataSource jrRS = new JRResultSetDataSource(rs);
-            //JasperReport relProjetos = JasperCompileManager.compileReport("C:\\Users\\vtffa\\Desktop\\Projeto POO Av - P2\\Divisão de trabalho entre equipe de desenvolvedores de software ~ V.03.01\\src\\report\\MyReports\\bin\\ProjetosRecursos.jrxml");
+            //JasperReport relProjetos = JasperCompileManager.compileReport("C:\\Users\\vtffa\\Desktop\\Projeto POO Av - P2\\Divisão de trabalho entre equipe de desenvolvedores de software ~ V.03.01\\src\\report\\MyReports\\bin\\ResourceReport.jrxml");
             //JasperPrint impressao = JasperFillManager.fillReport(relProjetos, null, jrRS);
             // O código abaixo irá invocar o formulário em modo binário e não trará as expressões condicionais definidas no .jrxml.
-
-            Object con = ControllerProjeto.getConnection();
+            
+            Object con = ControllerRecurso.getConnection();
             parametros.put("REPORT_CONNECTION",con);
 
-            JasperPrint impressao = JasperFillManager.fillReport("C:\\Users\\vtffa\\Desktop\\TCC\\EngSoft\\src\\report\\MyReports\\RecursoProjeto.jasper", parametros, jrRS);
+            JasperPrint impressao = JasperFillManager.fillReport("C:\\Users\\vtffa\\Desktop\\TCC\\EngSoft\\src\\report\\MyReports\\AlocacaoRecursoBarChart.jasper", parametros, jrRS);
             JasperViewer jrViewer = new JasperViewer(impressao,false);
-             
-            viewer.setSize(900,750); 
+            //jrViewer.setVisible(true);
+            //jrViewer.toFront();
+            viewer.setSize(1200,750); 
             viewer.setLocationRelativeTo(null); 
             viewer.getContentPane().add(jrViewer.getContentPane()); 
             viewer.setVisible(true); 
-            //jrViewer.setVisible(true);
-            //jrViewer.toFront(); 
         } catch (SQLException | JRException ex) {
             Logger.getLogger(ViewMenu.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
@@ -411,27 +409,28 @@ public class ViewMenuRelatorio extends javax.swing.JFrame {
 
     private void btOrcamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btOrcamentoActionPerformed
         ResultSet rs;
-        try {
+        try { 
             JDialog viewer = new JDialog(new javax.swing.JFrame(),"Visualização do Relatório", true);
             Map parametros = new HashMap();
-            
-            rs = ControllerAtividade.buscarTodasAtividades();
+            // trocar para ControllerAtividade
+            rs = ControllerProjeto.buscarAtividadesRecursos();
             JRResultSetDataSource jrRS = new JRResultSetDataSource(rs);
-            //JasperReport relProjetos = JasperCompileManager.compileReport("C:\\Users\\vtffa\\Desktop\\Projeto POO Av - P2\\Divisão de trabalho entre equipe de desenvolvedores de software ~ V.03.01\\src\\report\\MyReports\\bin\\OrcamentoRelatorio.jrxml");
+            //JasperReport relProjetos = JasperCompileManager.compileReport("C:\\Users\\vtffa\\Desktop\\Projeto POO Av - P2\\Divisão de trabalho entre equipe de desenvolvedores de software ~ V.03.01\\src\\report\\MyReports\\bin\\ProjetosRecursos.jrxml");
             //JasperPrint impressao = JasperFillManager.fillReport(relProjetos, null, jrRS);
             // O código abaixo irá invocar o formulário em modo binário e não trará as expressões condicionais definidas no .jrxml.
 
-            Object con = ControllerAtividade.getConnection();
+            Object con = ControllerProjeto.getConnection();
             parametros.put("REPORT_CONNECTION",con);
 
-            JasperPrint impressao = JasperFillManager.fillReport("C:\\Users\\vtffa\\Desktop\\Projeto POO Av - P2\\Divisão de trabalho entre equipe de desenvolvedores de software ~ V.03.01\\src\\report\\MyReports\\bin\\OrcamentoRelatorio.jasper", parametros, jrRS);
+            JasperPrint impressao = JasperFillManager.fillReport("C:\\Users\\vtffa\\Desktop\\TCC\\EngSoft\\src\\report\\MyReports\\AtividadesRecursos.jasper", parametros, jrRS);
             JasperViewer jrViewer = new JasperViewer(impressao,false);
-            //jrViewer.setVisible(true);
-            //jrViewer.toFront();
-            viewer.setSize(800,600); 
+             
+            viewer.setSize(1200,750);  
             viewer.setLocationRelativeTo(null); 
             viewer.getContentPane().add(jrViewer.getContentPane()); 
             viewer.setVisible(true); 
+            //jrViewer.setVisible(true);
+            //jrViewer.toFront(); 
         } catch (SQLException | JRException ex) {
             Logger.getLogger(ViewMenu.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {

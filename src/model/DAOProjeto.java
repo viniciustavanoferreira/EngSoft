@@ -146,5 +146,14 @@ public class DAOProjeto {
         rs = stmt.executeQuery(sql);
         return rs;
     }
+    
+    public static ResultSet buscarAtividadesRecursos() throws SQLException, ClassNotFoundException {
+        String sql;
+        conexao = getConnection();
+        stmt = conexao.createStatement();
+        sql = "SELECT a.atividade, a.status, a.horas, f.nome, f.tipo AS cargo FROM atividades a, funcionarios f  WHERE a.funcionario = f.codigo";
+        rs = stmt.executeQuery(sql);
+        return rs;
+    }
 
 } // Fim da classe DAOProjeto.

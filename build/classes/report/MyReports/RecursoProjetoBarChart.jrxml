@@ -70,15 +70,15 @@
 			</line>
 			<bar3DChart>
 				<chart evaluationTime="Report">
-					<reportElement x="240" y="140" width="515" height="390" uuid="67571e54-b120-4793-a284-70a69d298516"/>
+					<reportElement x="240" y="140" width="515" height="390" uuid="3e3aa2ff-9192-4eb0-bbe3-a9ab0c5d67dd"/>
 					<chartTitle/>
 					<chartSubtitle/>
 					<chartLegend/>
 				</chart>
 				<categoryDataset>
 					<categorySeries>
-						<seriesExpression><![CDATA[$F{FUNCIONARIO}]]></seriesExpression>
-						<categoryExpression><![CDATA[$F{ATIVIDADE}]]></categoryExpression>
+						<seriesExpression><![CDATA[$F{ATIVIDADE}]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{FUNCIONARIO}]]></categoryExpression>
 						<valueExpression><![CDATA[$F{STATUS}]]></valueExpression>
 						<labelExpression><![CDATA[$F{ATIVIDADE}]]></labelExpression>
 					</categorySeries>
@@ -95,8 +95,8 @@
 				</bar3DPlot>
 			</bar3DChart>
 			<staticText>
-				<reportElement x="245" y="498" width="55" height="32" uuid="8b8ad678-5ed5-4698-b59f-ad62ffc7e810"/>
-				<text><![CDATA[Percentual da atividade]]></text>
+				<reportElement x="180" y="210" width="70" height="32" uuid="8b8ad678-5ed5-4698-b59f-ad62ffc7e810"/>
+				<text><![CDATA[Percentual da atividade (%)]]></text>
 			</staticText>
 		</band>
 	</background>
@@ -107,7 +107,7 @@
 				<textElement textAlignment="Right">
 					<font size="22" isBold="false"/>
 				</textElement>
-				<text><![CDATA[Percentual das atividades de recursos por projetos]]></text>
+				<text><![CDATA[Percentual das atividades dos recursos]]></text>
 			</staticText>
 			<frame>
 				<reportElement mode="Opaque" x="-20" y="0" width="822" height="65" forecolor="#006699" backcolor="#006699" uuid="83f5e806-cc04-4161-87a9-07633f604bc1"/>

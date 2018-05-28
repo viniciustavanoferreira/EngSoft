@@ -165,7 +165,7 @@ There are two flowers, the first one is printed only starting from the second pa
 					<textElement textAlignment="Right">
 						<font size="54" isBold="false"/>
 					</textElement>
-					<text><![CDATA[Relatório de atuação]]></text>
+					<text><![CDATA[EngSoft]]></text>
 				</staticText>
 			</frame>
 		</band>
@@ -189,7 +189,7 @@ There are two flowers, the first one is printed only starting from the second pa
 					<textElement>
 						<font fontName="Arial" size="12" isBold="true"/>
 					</textElement>
-					<text><![CDATA[STATUS]]></text>
+					<text><![CDATA[STATUS (%)]]></text>
 				</staticText>
 				<staticText>
 					<reportElement style="Column header" positionType="Float" x="286" y="0" width="143" height="14" forecolor="#000000" uuid="72a0b63f-fd28-41bf-a23d-e2d15e071e8a"/>
