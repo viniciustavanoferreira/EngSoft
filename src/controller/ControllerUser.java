@@ -7,7 +7,9 @@ package controller;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 import model.DAOUser;
+import model.User;
 
 /**
  *
@@ -17,6 +19,24 @@ public class ControllerUser {
 
     public static ResultSet getCodUserPassUsuario(String codUser, String codPassword) throws SQLException {
         ResultSet rs = new DAOUser().getCodUserPassUsuario(codUser, codPassword);
+        return rs;
+    }
+    
+    public static List<User> lista() throws SQLException, ClassNotFoundException {
+        return DAOUser.lista(); 
+    }    
+
+    public static void inserirUsuario(User user) throws SQLException {
+        DAOUser.inserirUser(user);
+    }
+
+    public static void excluirUser(String codUser) throws SQLException {
+        DAOUser.excluirUser(codUser);
+    }
+    
+    public static ResultSet buscarPapeisUsuarios() throws SQLException, ClassNotFoundException {
+        ResultSet rs;
+        rs = DAOUser.buscarPapeisUsuarios();                
         return rs;
     }
     

@@ -101,7 +101,7 @@ public class ViewMenu extends javax.swing.JFrame {
         btRecurso.setBackground(new java.awt.Color(102, 102, 102));
         btRecurso.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btRecurso.setForeground(new java.awt.Color(255, 255, 255));
-        btRecurso.setText("Recurso(s)");
+        btRecurso.setText("Recursos");
         btRecurso.setToolTipText("Click para administrar recursos");
         btRecurso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,7 +112,7 @@ public class ViewMenu extends javax.swing.JFrame {
         btProjeto.setBackground(new java.awt.Color(102, 102, 102));
         btProjeto.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btProjeto.setForeground(new java.awt.Color(255, 255, 255));
-        btProjeto.setText("Projeto(s)");
+        btProjeto.setText("Projetos");
         btProjeto.setToolTipText("Click para administrar projetos");
         btProjeto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,7 +123,7 @@ public class ViewMenu extends javax.swing.JFrame {
         btOrcamento.setBackground(new java.awt.Color(102, 102, 102));
         btOrcamento.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btOrcamento.setForeground(new java.awt.Color(255, 255, 255));
-        btOrcamento.setText("Atividade(s)");
+        btOrcamento.setText("Atividades");
         btOrcamento.setToolTipText("Click para administrar atividades");
         btOrcamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -187,11 +187,11 @@ public class ViewMenu extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(lbOla)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lbDescName, javax.swing.GroupLayout.DEFAULT_SIZE, 421, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addComponent(lbDescName, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lbCodNameDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lbCodUser, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lbCodUser, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
                 .addContainerGap())
         );
         painelCabNomeRELayout.setVerticalGroup(

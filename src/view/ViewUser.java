@@ -254,13 +254,15 @@ public class ViewUser extends javax.swing.JFrame {
                 rs = ControllerUser.getCodUserPassUsuario(codUser, codPassword);
                 
                 if(rs != null){
-                    String test = rs.getString("CODUSER");
                     this.user.setCodUser(rs.getString("CODUSER"));
                     this.user.setDescName(rs.getString("DESCNAME"));
-
-                    //Invoca a tela ~ Cockpit.
-                    new ViewMenu(this.user).setVisible(true);
-
+                    this.user.setRole(rs.getString("ROLE"));
+                    
+                    if (this.user.getRole().equals("ADMINISTRADOR")) {
+                        new ViewMenuAdmin(this.user).setVisible(true);
+                    } else {
+                        new ViewMenu(this.user).setVisible(true);
+                    }
                     this.dispose();
                     rs.close();
                 }

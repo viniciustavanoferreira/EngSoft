@@ -211,7 +211,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Recurso(s)"/>
+                <Property name="text" type="java.lang.String" value="Recursos"/>
                 <Property name="toolTipText" type="java.lang.String" value="Click para administrar recursos"/>
               </Properties>
               <Events>
@@ -229,7 +229,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Projeto(s)"/>
+                <Property name="text" type="java.lang.String" value="Projetos"/>
                 <Property name="toolTipText" type="java.lang.String" value="Click para administrar projetos"/>
               </Properties>
               <Events>
@@ -247,7 +247,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Atividade(s)"/>
+                <Property name="text" type="java.lang.String" value="Atividades"/>
                 <Property name="toolTipText" type="java.lang.String" value="Click para administrar atividades"/>
               </Properties>
               <Events>
@@ -279,11 +279,11 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="lbOla" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lbDescName" pref="421" max="32767" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="lbDescName" min="-2" pref="403" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="lbCodNameDesc" min="-2" pref="35" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lbCodUser" min="-2" pref="120" max="-2" attributes="0"/>
+                      <Component id="lbCodUser" pref="146" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>

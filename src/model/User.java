@@ -10,6 +10,26 @@ public class User {
     private String codUser;
     private String codPassword;
     private String descName;
+    private String role;
+
+    public User(){
+        
+    }
+    
+    public User (String codUser, String codPassword, String descName, String role){
+        this.codUser = codUser;
+        this.codPassword = codPassword;
+        this.descName = descName;
+        this.role = role;
+    }
+    
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
 
     public String getCodUser() {
         return codUser;
@@ -34,5 +54,8 @@ public class User {
     public void setDescName(String descName) {
         this.descName = descName;
     }  
-            
+    
+    public Object[] getValueAsObject() {
+        return new String[]{this.codUser, this.role, this.descName};
+    }    
 }
