@@ -258,10 +258,16 @@ public class ViewUser extends javax.swing.JFrame {
                     this.user.setDescName(rs.getString("DESCNAME"));
                     this.user.setRole(rs.getString("ROLE"));
                     
-                    if (this.user.getRole().equals("ADMINISTRADOR")) {
-                        new ViewMenuAdmin(this.user).setVisible(true);
-                    } else {
-                        new ViewMenu(this.user).setVisible(true);
+                    switch (this.user.getRole().trim()) {
+                        case "ADMINISTRADOR":
+                            new ViewMenuAdmin(this.user).setVisible(true);
+                            break;
+                        case "RECURSO":
+                            new ViewMenuRecurso(this.user).setVisible(true);
+                            break;
+                        default:
+                            new ViewMenu(this.user).setVisible(true);
+                            break;
                     }
                     this.dispose();
                     rs.close();

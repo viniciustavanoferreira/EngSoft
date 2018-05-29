@@ -109,4 +109,31 @@ public class DAOAtividade {
         return getConnection();
     }
 
+    public static List<Atividade> listaPercent(String codUser) throws SQLException, ClassNotFoundException {
+        Connection conexao = getConnection();
+        Statement stmt = conexao.createStatement();
+        String sql = "SELECT a.codigo, p.nome AS PROJETO, f.nome AS FUNCIONARIO, a.inicio, "
+                + "a.fim, a.atividade, a.status, a.horas "
+                + "FROM atividades AS a JOIN projetos AS p ON a.projeto = p.codigo "
+                + "JOIN funcionarios AS f ON a.funcionario = f.codigo "
+                + "WHERE f.coduser = '" + codUser + "'";
+        ResultSet rs = stmt.executeQuery(sql);
+        List<Atividade> atividades = new ArrayList();
+
+        while (rs.next()) {
+            Integer codigo = rs.getInt("CODIGO");
+            String projeto = rs.getString("PROJETO");
+            String funcionario = rs.getString("FUNCIONARIO");
+            Date inicio = rs.getDate("INICIO");
+            Date fim = rs.getDate("FIM");
+            String atv = rs.getString("ATIVIDADE");
+            Integer status = rs.getInt("STATUS");
+            Integer horas = rs.getInt("HORAS");
+
+            Atividade atividade = new Atividade(codigo, new Projeto(projeto), new Recurso(funcionario), inicio, fim, atv, status, horas);
+            atividades.add(atividade);
+        }
+        return atividades;
+    }
+
 }//Fim da classe DAOAtividade.

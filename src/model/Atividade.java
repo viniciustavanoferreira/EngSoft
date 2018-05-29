@@ -142,6 +142,13 @@ public class Atividade {
         return new String[]{this.projeto.getNome(), this.funcionario.getNome(), sdf.format(this.inicio), sdf.format(this.fim),
                             this.atividade, this.status.toString(), this.horas.toString()};
     }
+    
+    public Object[] getValueAsObjectPercent() {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        
+        return new String[]{this.projeto.getNome(), sdf.format(this.inicio), sdf.format(this.fim),
+                            this.atividade, this.status.toString(), this.horas.toString()};
+    }
 
     public String getAtividade() {
         return atividade;

@@ -173,8 +173,8 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="btUsuario" alignment="1" max="32767" attributes="0"/>
-                          <Component id="btRelatorioUsuario" alignment="1" max="32767" attributes="0"/>
+                          <Component id="btPercentualAtividade" alignment="1" max="32767" attributes="0"/>
+                          <Component id="btModificarSenha" alignment="1" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   </Group>
@@ -184,16 +184,16 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                      <Component id="btUsuario" min="-2" pref="45" max="-2" attributes="0"/>
+                      <Component id="btPercentualAtividade" min="-2" pref="45" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btRelatorioUsuario" min="-2" pref="46" max="-2" attributes="0"/>
+                      <Component id="btModificarSenha" min="-2" pref="46" max="-2" attributes="0"/>
                       <EmptySpace pref="35" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="btUsuario">
+            <Component class="javax.swing.JButton" name="btPercentualAtividade">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="66" red="66" type="rgb"/>
@@ -204,14 +204,14 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Manter usu&#xe1;rios"/>
+                <Property name="text" type="java.lang.String" value="Atualizar Percentuais"/>
                 <Property name="toolTipText" type="java.lang.String" value="Click para administrar recursos"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btUsuarioActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btPercentualAtividadeActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btRelatorioUsuario">
+            <Component class="javax.swing.JButton" name="btModificarSenha">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="66" red="66" type="rgb"/>
@@ -222,11 +222,11 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Relat&#xf3;rio de usu&#xe1;rios"/>
+                <Property name="text" type="java.lang.String" value="Modificar Senha"/>
                 <Property name="toolTipText" type="java.lang.String" value="Click para administrar projetos"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btRelatorioUsuarioActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btModificarSenhaActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

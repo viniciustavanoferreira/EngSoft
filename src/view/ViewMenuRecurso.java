@@ -22,18 +22,18 @@ import net.sf.jasperreports.view.JasperViewer;
  * @author Vinicius Tavano Ferreira
  * @since Classe criada em 20/08/2017
  */
-public class ViewMenuAdmin extends javax.swing.JFrame {
+public class ViewMenuRecurso extends javax.swing.JFrame {
 
     User user = new User();  
     
-    public ViewMenuAdmin(User user) {
+    public ViewMenuRecurso(User user) {
         initComponents();
         this.user = user;
         this.lbCodUser.setText(this.user.getCodUser());
         this.lbDescName.setText(this.user.getDescName());
     }
 
-    private ViewMenuAdmin() {
+    private ViewMenuRecurso() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -51,8 +51,8 @@ public class ViewMenuAdmin extends javax.swing.JFrame {
         painelLinhaMenu = new javax.swing.JPanel();
         painelMenu = new javax.swing.JPanel();
         painelBotoes = new javax.swing.JPanel();
-        btUsuario = new javax.swing.JButton();
-        btRelatorioUsuario = new javax.swing.JButton();
+        btPercentualAtividade = new javax.swing.JButton();
+        btModificarSenha = new javax.swing.JButton();
         painelCabNomeRE = new javax.swing.JPanel();
         lbOla = new javax.swing.JLabel();
         lbCodNameDesc = new javax.swing.JLabel();
@@ -111,25 +111,25 @@ public class ViewMenuAdmin extends javax.swing.JFrame {
         painelBotoes.setBackground(new java.awt.Color(255, 255, 255));
         painelBotoes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204), 2));
 
-        btUsuario.setBackground(new java.awt.Color(102, 102, 102));
-        btUsuario.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btUsuario.setForeground(new java.awt.Color(255, 255, 255));
-        btUsuario.setText("Manter usuários");
-        btUsuario.setToolTipText("Click para administrar recursos");
-        btUsuario.addActionListener(new java.awt.event.ActionListener() {
+        btPercentualAtividade.setBackground(new java.awt.Color(102, 102, 102));
+        btPercentualAtividade.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btPercentualAtividade.setForeground(new java.awt.Color(255, 255, 255));
+        btPercentualAtividade.setText("Atualizar Percentuais");
+        btPercentualAtividade.setToolTipText("Click para administrar recursos");
+        btPercentualAtividade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btUsuarioActionPerformed(evt);
+                btPercentualAtividadeActionPerformed(evt);
             }
         });
 
-        btRelatorioUsuario.setBackground(new java.awt.Color(102, 102, 102));
-        btRelatorioUsuario.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btRelatorioUsuario.setForeground(new java.awt.Color(255, 255, 255));
-        btRelatorioUsuario.setText("Relatório de usuários");
-        btRelatorioUsuario.setToolTipText("Click para administrar projetos");
-        btRelatorioUsuario.addActionListener(new java.awt.event.ActionListener() {
+        btModificarSenha.setBackground(new java.awt.Color(102, 102, 102));
+        btModificarSenha.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btModificarSenha.setForeground(new java.awt.Color(255, 255, 255));
+        btModificarSenha.setText("Modificar Senha");
+        btModificarSenha.setToolTipText("Click para administrar projetos");
+        btModificarSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btRelatorioUsuarioActionPerformed(evt);
+                btModificarSenhaActionPerformed(evt);
             }
         });
 
@@ -140,17 +140,17 @@ public class ViewMenuAdmin extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelBotoesLayout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addGroup(painelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btUsuario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btRelatorioUsuario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btPercentualAtividade, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btModificarSenha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(26, 26, 26))
         );
         painelBotoesLayout.setVerticalGroup(
             painelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painelBotoesLayout.createSequentialGroup()
                 .addGap(34, 34, 34)
-                .addComponent(btUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btPercentualAtividade, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btRelatorioUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btModificarSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(35, Short.MAX_VALUE))
         );
 
@@ -267,14 +267,14 @@ public class ViewMenuAdmin extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btUsuarioActionPerformed
+    private void btPercentualAtividadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPercentualAtividadeActionPerformed
         //Invoca a tela ~ ViewRecurso.
-        new ViewUsuarioAdmin(this.user).setVisible(true);
+        new ViewPercentualAtividade(this.user).setVisible(true);
         this.dispose();
                     
-    }//GEN-LAST:event_btUsuarioActionPerformed
+    }//GEN-LAST:event_btPercentualAtividadeActionPerformed
 
-    private void btRelatorioUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRelatorioUsuarioActionPerformed
+    private void btModificarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btModificarSenhaActionPerformed
         ResultSet rs;
         try { 
             JDialog viewer = new JDialog(new javax.swing.JFrame(),"Visualização do Relatório", true);
@@ -303,7 +303,7 @@ public class ViewMenuAdmin extends javax.swing.JFrame {
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ViewMenuRelatorio.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_btRelatorioUsuarioActionPerformed
+    }//GEN-LAST:event_btModificarSenhaActionPerformed
 
     private void btGerarRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGerarRelatorioActionPerformed
         //Invoca a tela ~ ViewMenuRelatorio.
@@ -325,8 +325,40 @@ public class ViewMenuAdmin extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ViewMenuAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewMenuRecurso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -367,15 +399,15 @@ public class ViewMenuAdmin extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new ViewMenuAdmin().setVisible(true);
+                new ViewMenuRecurso().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btGerarRelatorio;
-    private javax.swing.JButton btRelatorioUsuario;
-    private javax.swing.JButton btUsuario;
+    private javax.swing.JButton btModificarSenha;
+    private javax.swing.JButton btPercentualAtividade;
     private javax.swing.JLabel lbBusinessMan;
     private javax.swing.JLabel lbCabecalhoMenu;
     private javax.swing.JLabel lbCodNameDesc;

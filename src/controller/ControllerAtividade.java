@@ -41,4 +41,8 @@ public class ControllerAtividade {
         return DAOAtividade.getConnectionForReport();
     }//Fim do método getConnection. 
 
+    public static List<Atividade> listaPercent(String codUser) throws SQLException, ClassNotFoundException {
+        return DAOAtividade.listaPercent(codUser);
+    }
+
 }//Fim da classe ControllerAtividade.
