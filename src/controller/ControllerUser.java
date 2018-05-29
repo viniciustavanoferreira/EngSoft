@@ -39,5 +39,9 @@ public class ControllerUser {
         rs = DAOUser.buscarPapeisUsuarios();                
         return rs;
     }
+
+    public static List<User> listaRecursos() throws SQLException {
+        return DAOUser.listaRecursos(); 
+    }
     
 }

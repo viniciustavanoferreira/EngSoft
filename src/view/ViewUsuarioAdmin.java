@@ -35,7 +35,9 @@ public class ViewUsuarioAdmin extends javax.swing.JFrame {
         this.atualizarTabela();
         this.btExcluir.setEnabled(false);
         this.btLimpar.setEnabled(false);
-        tfSenha.setDocument(new DocumentoLimitado(11));
+        tfUsuario.setDocument(new DocumentoLimitado(44));
+        tfSenha.setDocument(new DocumentoLimitado(26));
+        tfNome.setDocument(new DocumentoLimitado(44));
     }
 
     private ViewUsuarioAdmin() {

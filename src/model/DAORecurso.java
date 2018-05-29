@@ -31,7 +31,7 @@ public class DAORecurso {
         Connection conexao = getConnection();
         Statement stmt = conexao.createStatement();
         
-        String sql = "SELECT * FROM FUNCIONARIOS ORDER BY codigo DESC";
+        String sql = "SELECT * from funcionarios ORDER BY codigo DESC";
         
         ResultSet rs = stmt.executeQuery(sql);
         
@@ -46,8 +46,9 @@ public class DAORecurso {
             String estado = rs.getString("ESTADO");
             String sexo = rs.getString("SEXO");
             String cargo = rs.getString("TIPO");
+            String codUser = rs.getString("CODUSER");
                     
-            Recurso funcionario = new Recurso(codigo, nome, endereco, cidade, estado, sexo, new Cargo(cargo));
+            Recurso funcionario = new Recurso(codigo, nome, endereco, cidade, estado, sexo, new Cargo(cargo), new User(codUser));
             funcionarios.add(funcionario);
         }
         
@@ -56,13 +57,14 @@ public class DAORecurso {
         
     public static void inserirFuncionario(Recurso funcionario) throws SQLException, ClassNotFoundException {
         conexao = getConnection();
-        PreparedStatement ps = conexao.prepareStatement("INSERT INTO funcionarios VALUES ((select COALESCE(MAX(codigo) + 1, 1) from funcionarios), ?, ?, ?, ?, ?, ?)");
+        PreparedStatement ps = conexao.prepareStatement("INSERT INTO funcionarios VALUES ((select COALESCE(MAX(codigo) + 1, 1) from funcionarios), ?, ?, ?, ?, ?, ?, ?)");
         ps.setString(1, funcionario.getNome());
         ps.setString(2, funcionario.getEndereco());
         ps.setString(3, funcionario.getCidade());
         ps.setString(4, funcionario.getEstado());
         ps.setString(5, funcionario.getSexo());
         ps.setString(6, funcionario.getCargo().getNome());
+        ps.setString(7, funcionario.getUser().getCodUser());
         
         if (ps.executeUpdate() > 0)
             JOptionPane.showMessageDialog(null, "Funcionário cadastrado com sucesso!");
@@ -73,7 +75,7 @@ public class DAORecurso {
     public static void alterarFuncionario(Recurso funcionario) throws SQLException, ClassNotFoundException {
         String sql;
         conexao = getConnection();
-        PreparedStatement ps = conexao.prepareStatement("UPDATE funcionarios SET nome = ?, endereco = ?, cidade = ?, estado = ?, sexo = ?, tipo = ? WHERE codigo = ?");
+        PreparedStatement ps = conexao.prepareStatement("UPDATE funcionarios SET nome = ?, endereco = ?, cidade = ?, estado = ?, sexo = ?, tipo = ?, coduser = ? WHERE codigo = ?");
         
         ps.setString(1, funcionario.getNome());
         ps.setString(2, funcionario.getEndereco());
@@ -81,7 +83,8 @@ public class DAORecurso {
         ps.setString(4, funcionario.getEstado());
         ps.setString(5, funcionario.getSexo());
         ps.setString(6, funcionario.getCargo().getNome());
-        ps.setInt(7, funcionario.getCodigo());
+        ps.setString(7, funcionario.getUser().getCodUser());
+        ps.setInt(8, funcionario.getCodigo());
 
         if(ps.executeUpdate()>0)
             JOptionPane.showMessageDialog(null,"Funcionário alterado com sucesso!");

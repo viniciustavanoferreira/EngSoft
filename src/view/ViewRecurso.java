@@ -3,6 +3,7 @@ package view;
 //Sessão de importação.
 import controller.ControllerCargo;
 import controller.ControllerRecurso;
+import controller.ControllerUser;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import model.Recurso;
@@ -25,6 +26,7 @@ public class ViewRecurso extends javax.swing.JFrame {
     private Recurso funcionario;
     private List<Recurso> funcionarios;
     private List<Cargo> tipos;
+    private List<User> users;
     private final User user;
     /**
      * Creates new form FormFuncionario
@@ -34,6 +36,7 @@ public class ViewRecurso extends javax.swing.JFrame {
         initComponents();
         this.user = user;
         this.populaComboTipo();
+        this.populaComboUsuario();
         this.atualizarTabela();
         this.limparCampos();
         tfNome.setDocument(new DocumentoLimitado(44));
@@ -73,6 +76,8 @@ public class ViewRecurso extends javax.swing.JFrame {
         rbFeminino = new javax.swing.JRadioButton();
         lbEstado = new javax.swing.JLabel();
         lbImagem = new javax.swing.JLabel();
+        cbUsuario = new javax.swing.JComboBox<>();
+        lbUsuario = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbFuncionarios = new javax.swing.JTable();
         painelBotoes = new javax.swing.JPanel();
@@ -114,6 +119,7 @@ public class ViewRecurso extends javax.swing.JFrame {
         lbPreco1.setText("Cargo:");
 
         cbCargo.setBackground(new java.awt.Color(255, 255, 204));
+        cbCargo.setToolTipText("");
         cbCargo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbCargoActionPerformed(evt);
@@ -159,6 +165,17 @@ public class ViewRecurso extends javax.swing.JFrame {
 
         lbImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/img10.png"))); // NOI18N
 
+        cbUsuario.setBackground(new java.awt.Color(255, 255, 204));
+        cbUsuario.setSelectedIndex(-1);
+        cbUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbUsuarioActionPerformed(evt);
+            }
+        });
+
+        lbUsuario.setForeground(new java.awt.Color(0, 153, 255));
+        lbUsuario.setText("Usuário:");
+
         javax.swing.GroupLayout painelFuncionarioLayout = new javax.swing.GroupLayout(painelFuncionario);
         painelFuncionario.setLayout(painelFuncionarioLayout);
         painelFuncionarioLayout.setHorizontalGroup(
@@ -167,46 +184,47 @@ public class ViewRecurso extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(painelFuncionarioLayout.createSequentialGroup()
-                        .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(painelFuncionarioLayout.createSequentialGroup()
-                                .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lbCodigo)
-                                    .addComponent(lbNome)
-                                    .addComponent(lbPreco))
-                                .addGap(18, 18, 18)
-                                .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(painelFuncionarioLayout.createSequentialGroup()
-                                        .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(tfCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 190, Short.MAX_VALUE)
-                                        .addComponent(lbImagem))
-                                    .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(tfEndereco, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, painelFuncionarioLayout.createSequentialGroup()
-                                            .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(rbMasculino)
-                                                .addComponent(tfCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(painelFuncionarioLayout.createSequentialGroup()
-                                                    .addGap(18, 18, 18)
-                                                    .addComponent(rbFeminino))
-                                                .addGroup(painelFuncionarioLayout.createSequentialGroup()
-                                                    .addGap(37, 37, 37)
-                                                    .addComponent(lbEstado)
-                                                    .addGap(18, 18, 18)
-                                                    .addComponent(cbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                            .addGroup(painelFuncionarioLayout.createSequentialGroup()
-                                .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lbSexo)
-                                    .addComponent(lbEndereco))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addGap(21, 21, 21))
-                    .addGroup(painelFuncionarioLayout.createSequentialGroup()
                         .addComponent(lbPreco1)
                         .addGap(18, 18, 18)
                         .addComponent(cbCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lbUsuario)
+                        .addGap(18, 18, 18)
+                        .addComponent(cbUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(painelFuncionarioLayout.createSequentialGroup()
+                        .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbCodigo)
+                            .addComponent(lbNome)
+                            .addComponent(lbPreco))
+                        .addGap(18, 18, 18)
+                        .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(painelFuncionarioLayout.createSequentialGroup()
+                                .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tfCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 190, Short.MAX_VALUE)
+                                .addComponent(lbImagem))
+                            .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(tfEndereco, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, painelFuncionarioLayout.createSequentialGroup()
+                                    .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(rbMasculino)
+                                        .addComponent(tfCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(painelFuncionarioLayout.createSequentialGroup()
+                                            .addGap(18, 18, 18)
+                                            .addComponent(rbFeminino))
+                                        .addGroup(painelFuncionarioLayout.createSequentialGroup()
+                                            .addGap(37, 37, 37)
+                                            .addComponent(lbEstado)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(cbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                    .addGroup(painelFuncionarioLayout.createSequentialGroup()
+                        .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbSexo)
+                            .addComponent(lbEndereco))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(21, 21, 21))
         );
         painelFuncionarioLayout.setVerticalGroup(
             painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -240,33 +258,37 @@ public class ViewRecurso extends javax.swing.JFrame {
                     .addComponent(rbMasculino)
                     .addComponent(rbFeminino))
                 .addGap(18, 18, 18)
-                .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbPreco1)
-                    .addComponent(cbCargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lbUsuario)
+                        .addComponent(cbUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lbPreco1)
+                        .addComponent(cbCargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
         tbFuncionarios.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         tbFuncionarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Código", "Nome", "Endereco", "Cidade", "Estado", "Sexo", "Cargo"
+                "Código", "Nome", "Endereco", "Cidade", "Estado", "Sexo", "Cargo", "Usuário"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -496,6 +518,10 @@ public class ViewRecurso extends javax.swing.JFrame {
         flo.setVisible(true);
     }//GEN-LAST:event_btListagemFuncionariosActionPerformed
 
+    private void cbUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbUsuarioActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -571,6 +597,7 @@ public class ViewRecurso extends javax.swing.JFrame {
     private javax.swing.JButton btSalvar;
     private javax.swing.JComboBox<String> cbCargo;
     private javax.swing.JComboBox<String> cbEstado;
+    private javax.swing.JComboBox<String> cbUsuario;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbCodigo;
     private javax.swing.JLabel lbEndereco;
@@ -580,6 +607,7 @@ public class ViewRecurso extends javax.swing.JFrame {
     private javax.swing.JLabel lbPreco;
     private javax.swing.JLabel lbPreco1;
     private javax.swing.JLabel lbSexo;
+    private javax.swing.JLabel lbUsuario;
     private javax.swing.JPanel painelBotoes;
     private javax.swing.JPanel painelFuncionario;
     private javax.swing.JRadioButton rbFeminino;
@@ -602,6 +630,7 @@ public class ViewRecurso extends javax.swing.JFrame {
         String estado = (String) this.cbEstado.getSelectedItem();
         String sexo = this.rbFeminino.isSelected() ? "Feminino" : "Masculino";
         Cargo tipo = this.tipos.get(this.cbCargo.getSelectedIndex());
+        User userAdd = this.users.get(this.cbUsuario.getSelectedIndex());
 
         if (this.funcionario == null) {
             this.funcionario = new Recurso();
@@ -610,15 +639,14 @@ public class ViewRecurso extends javax.swing.JFrame {
         this.funcionario.setNome(nome);
         this.funcionario.setCidade(cidade);
         this.funcionario.setCargo(tipo);
+        this.funcionario.setUser(userAdd);
         this.funcionario.setEndereco(endereco);
         this.funcionario.setEstado(estado);
         this.funcionario.setSexo(sexo);
 
         try {
             ControllerRecurso.salvarFuncionario(this.funcionario);
-        } catch (SQLException ex) {
-            Logger.getLogger(ViewRecurso.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
+        } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(ViewRecurso.class.getName()).log(Level.SEVERE, null, ex);
         }
 
@@ -646,6 +674,7 @@ public class ViewRecurso extends javax.swing.JFrame {
         this.tfCidade.setText("");
         this.cbEstado.setSelectedIndex(-1);
         this.cbCargo.setSelectedIndex(-1);
+        this.cbUsuario.setSelectedIndex(-1);
         this.GrupoSexo.clearSelection();
 
         this.btExcluir.setEnabled(false);
@@ -668,6 +697,8 @@ public class ViewRecurso extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Sexo do funcionário é obrigatório");
         } else if (this.cbCargo.getSelectedIndex() < 0) {
             JOptionPane.showMessageDialog(this, "Cargo do funcionário é obrigatório");
+        } else if (this.cbUsuario.getSelectedIndex() < 0) {
+            JOptionPane.showMessageDialog(this, "Usuário do funcionário é obrigatório");
         } else {
             isValido = true;
         }
@@ -675,7 +706,7 @@ public class ViewRecurso extends javax.swing.JFrame {
     }
 
     private void atualizarTabela() {
-        String[] colunas = {"Código", "Nome", "Endereco", "Cidade", "Estado", "Sexo", "Cargo"};
+        String[] colunas = {"Código", "Nome", "Endereco", "Cidade", "Estado", "Sexo", "Cargo", "Usuário"};
         DefaultTableModel tableModel = new DefaultTableModel();
         tableModel.setColumnIdentifiers(colunas);
 
@@ -701,8 +732,10 @@ public class ViewRecurso extends javax.swing.JFrame {
             this.cbEstado.setSelectedItem(funcionario.getEstado());
             this.rbMasculino.setSelected("Masculino".equals(funcionario.getSexo()));
             this.rbFeminino.setSelected("Feminino".equals(funcionario.getSexo()));
-            int tipoIndex = this.tipos.indexOf(this.funcionario.getCargo());
-            this.cbCargo.setSelectedIndex(tipoIndex);
+            int index = this.tipos.indexOf(this.funcionario.getCargo());
+            this.cbCargo.setSelectedIndex(index);
+            index = this.users.indexOf(this.funcionario.getUser());
+            this.cbUsuario.setSelectedIndex(index);
         }
         this.btExcluir.setEnabled(true);
         this.btLimpar.setEnabled(true);
@@ -716,9 +749,24 @@ public class ViewRecurso extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
-        for (Cargo tipo : this.tipos) {
-            this.cbCargo.addItem(tipo.getNome());
+//        for (Cargo tipo : this.tipos) {
+//            this.cbCargo.addItem(tipo.getNome());
+//        }
+        // Lambda :-)
+        this.tipos.forEach((tipo)-> 
+                this.cbCargo.addItem(tipo.getNome()));
+    }
+    
+    private void populaComboUsuario() {
+        try {
+            this.users = ControllerUser.listaRecursos();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
         }
+        
+        this.users.forEach((u) -> 
+            this.cbUsuario.addItem(u.getCodUser())
+        );
     }
 
 }

@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Objects;
+
 /**
  * Classe que define os estados e comportamentos referentes ao Usuário.
  * @author Vinicius Tavano Ferreira
@@ -21,6 +23,10 @@ public class User {
         this.codPassword = codPassword;
         this.descName = descName;
         this.role = role;
+    }
+
+    public User(String codUser) {
+        this.codUser = codUser;
     }
     
     public String getRole() {
@@ -58,4 +64,29 @@ public class User {
     public Object[] getValueAsObject() {
         return new String[]{this.codUser, this.role, this.descName};
     }    
+    
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 83 * hash + Objects.hashCode(this.codUser);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final User other = (User) obj;
+        if (!Objects.equals(this.codUser, other.codUser)) {
+            return false;
+        }
+        return true;
+    }
 }

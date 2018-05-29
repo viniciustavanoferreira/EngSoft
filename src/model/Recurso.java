@@ -17,6 +17,7 @@ public class Recurso {
     private String estado;
     private String sexo;
     private Cargo cargo;
+    private User user;
 
     public Recurso() {
     }
@@ -35,6 +36,19 @@ public class Recurso {
     public Recurso(String funcionario) {
         this.nome = funcionario;
     }
+
+    public Recurso(Integer codigo, String nome, String endereco, String cidade, 
+            String estado, String sexo, Cargo cargo, User user) {
+        this.codigo = codigo;
+        this.nome = nome;
+        this.endereco = endereco;
+        this.cidade = cidade;
+        this.estado = estado;
+        this.sexo = sexo;
+        this.cargo = cargo;
+        this.user = user;
+    }
+
 
     public Integer getCodigo() {
         return codigo;
@@ -99,8 +113,20 @@ public class Recurso {
         this.sexo = sexo;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }    
+    
     private String getCargoAsString() {
         return this.cargo != null ? this.cargo.getNome() : "";
+    }
+    
+    private String getUserAsString() {
+        return this.user != null ? this.user.getCodUser(): "";
     }
 
     @Override
@@ -135,6 +161,6 @@ public class Recurso {
 
     public Object[] getValueAsObject() {
         return new String[]{this.codigo.toString(), this.nome, this.endereco, this.cidade,
-                            this.estado, this.sexo, this.getCargoAsString()};
+                            this.estado, this.sexo, this.getCargoAsString(), this.getUserAsString()};
     }
 }

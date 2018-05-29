@@ -85,6 +85,28 @@ public class DAOUser {
         return rs;
     }
 
+    public static List<User> listaRecursos() throws SQLException {
+        
+        Connection conexao = getConnectionStatic();
+        Statement stmt = conexao.createStatement();
+        String sql = "SELECT * FROM usuario WHERE ROLE = 'RECURSO' ORDER BY coduser DESC";
+        ResultSet rs = stmt.executeQuery(sql);
+        List<User> users = new ArrayList();
+
+        while (rs.next()) {
+
+            String codUser = rs.getString("CODUSER");
+            String codPassword = rs.getString("CODPASSWORD");
+            String descName = rs.getString("DESCNAME");
+            String role = rs.getString("ROLE");
+
+            User user = new User(codUser, codPassword, descName, role);
+            users.add(user);
+        }
+        
+        return users;
+    }
+
     private Connection conn;
     private Statement stmt;
     private ResultSet rs = null;
