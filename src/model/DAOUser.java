@@ -107,6 +107,23 @@ public class DAOUser {
         return users;
     }
 
+    public static void alterarSenha(String codUser, String senha) throws SQLException {
+        String sql = "UPDATE usuario SET codpassword = ? WHERE coduser = ?";
+        try(Connection conn = getConnectionStatic();
+            PreparedStatement ps = conn.prepareStatement(sql)){
+            
+            ps.setString(1, senha);
+            ps.setString(2, codUser);
+            
+            if(ps.executeUpdate() > 0){
+                JOptionPane.showMessageDialog(null, "Senha alterada com sucesso!");
+            } else {
+                JOptionPane.showMessageDialog(null, "ERRO de acesso ao Banco de Dados!");
+                            
+            }
+        }
+    }
+
     private Connection conn;
     private Statement stmt;
     private ResultSet rs = null;

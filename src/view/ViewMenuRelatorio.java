@@ -340,7 +340,7 @@ public class ViewMenuRelatorio extends javax.swing.JFrame {
 
     private void btMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btMenuActionPerformed
         //Invoca a tela ~ Cockpit.
-        new ViewMenu(this.user).setVisible(true);
+        new ViewAtividade(this.user).setVisible(true);
         this.dispose();
 
     }//GEN-LAST:event_btMenuActionPerformed

@@ -46,7 +46,7 @@ public class ViewMenu extends javax.swing.JFrame {
         lbCodUser = new javax.swing.JLabel();
         lbDescName = new javax.swing.JLabel();
         lbBusinessMan = new javax.swing.JLabel();
-        btGerarRelatorio = new javax.swing.JButton();
+        btSair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Configurações do Sistema");
@@ -79,7 +79,7 @@ public class ViewMenu extends javax.swing.JFrame {
             painelCabMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(painelLinhaMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelCabMenuLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(679, Short.MAX_VALUE)
                 .addComponent(lbCabecalhoMenu)
                 .addContainerGap())
         );
@@ -208,14 +208,14 @@ public class ViewMenu extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        btGerarRelatorio.setBackground(new java.awt.Color(102, 102, 102));
-        btGerarRelatorio.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btGerarRelatorio.setForeground(new java.awt.Color(255, 255, 255));
-        btGerarRelatorio.setText("Gerar relatório(s)");
-        btGerarRelatorio.setToolTipText("Click para gerar relatórios");
-        btGerarRelatorio.addActionListener(new java.awt.event.ActionListener() {
+        btSair.setBackground(new java.awt.Color(102, 102, 102));
+        btSair.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btSair.setForeground(new java.awt.Color(255, 255, 255));
+        btSair.setText("Sair");
+        btSair.setToolTipText("Click para gerar relatórios");
+        btSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btGerarRelatorioActionPerformed(evt);
+                btSairActionPerformed(evt);
             }
         });
 
@@ -236,7 +236,7 @@ public class ViewMenu extends javax.swing.JFrame {
                         .addGap(0, 16, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelMenuLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btGerarRelatorio)))
+                        .addComponent(btSair, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         painelMenuLayout.setVerticalGroup(
@@ -247,7 +247,7 @@ public class ViewMenu extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addComponent(painelBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
-                .addComponent(btGerarRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btSair, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -288,11 +288,11 @@ public class ViewMenu extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btProjetoActionPerformed
 
-    private void btGerarRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGerarRelatorioActionPerformed
+    private void btSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSairActionPerformed
         //Invoca a tela ~ ViewMenuRelatorio.
-        new ViewMenuRelatorio(this.user).setVisible(true);
+        new ViewUser().setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_btGerarRelatorioActionPerformed
+    }//GEN-LAST:event_btSairActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -340,10 +340,10 @@ public class ViewMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btGerarRelatorio;
     private javax.swing.JButton btOrcamento;
     private javax.swing.JButton btProjeto;
     private javax.swing.JButton btRecurso;
+    private javax.swing.JButton btSair;
     private javax.swing.JLabel lbBusinessMan;
     private javax.swing.JLabel lbCabecalhoMenu;
     private javax.swing.JLabel lbCodNameDesc;

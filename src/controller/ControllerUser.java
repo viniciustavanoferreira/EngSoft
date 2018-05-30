@@ -43,5 +43,9 @@ public class ControllerUser {
     public static List<User> listaRecursos() throws SQLException {
         return DAOUser.listaRecursos(); 
     }
+
+    public static void alterarSenha(String codUser, String senha) throws SQLException {
+        DAOUser.alterarSenha(codUser, senha);
+    }
     
 }

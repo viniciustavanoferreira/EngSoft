@@ -32,7 +32,8 @@ public class ViewProjeto extends javax.swing.JFrame {
         initComponents();
         this.user = user;
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        setLocation(400, 100);//(x,y)
+//        setLocation(400, 100);//(x,y)
+        setLocationRelativeTo(null);
         tfCodigo.setEditable(true);
         this.atualizarTabela();
         this.btExcluir.setEnabled(false);
