@@ -45,4 +45,8 @@ public class ControllerAtividade {
         return DAOAtividade.listaPercent(codUser);
     }
 
+    public static ResultSet buscarAtividadesRecurso(String codUser) throws SQLException, ClassNotFoundException{
+        return DAOAtividade.buscarAtividadesRecurso(codUser);
+    }
+
 }//Fim da classe ControllerAtividade.

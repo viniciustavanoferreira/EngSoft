@@ -49,7 +49,6 @@ public class ViewMenu extends javax.swing.JFrame {
         btSair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Configurações do Sistema");
         setResizable(false);
 
         painelCabMenu.setBackground(new java.awt.Color(255, 255, 255));
@@ -212,7 +211,7 @@ public class ViewMenu extends javax.swing.JFrame {
         btSair.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btSair.setForeground(new java.awt.Color(255, 255, 255));
         btSair.setText("Sair");
-        btSair.setToolTipText("Click para gerar relatórios");
+        btSair.setToolTipText("Click para sair do sistema");
         btSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btSairActionPerformed(evt);

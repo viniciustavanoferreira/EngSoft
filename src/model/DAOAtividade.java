@@ -136,4 +136,18 @@ public class DAOAtividade {
         return atividades;
     }
 
+    public static ResultSet buscarAtividadesRecurso(String codUser) throws SQLException, ClassNotFoundException {
+        String sql = "SELECT a.codigo, p.nome AS PROJETO, f.nome AS FUNCIONARIO, a.inicio, "
+                + "a.fim, a.atividade, a.status, a.horas "
+                + "FROM atividades AS a JOIN projetos AS p ON a.projeto = p.codigo "
+                + "JOIN funcionarios AS f ON a.funcionario = f.codigo "
+                + "WHERE f.coduser = '" + codUser + "'";
+        
+        Connection con = getConnection();
+        Statement stmt = con.createStatement();
+        ResultSet rs = stmt.executeQuery(sql);
+        return rs;
+    }
+
+
 }//Fim da classe DAOAtividade.

@@ -62,7 +62,6 @@ public class ViewMenuRecurso extends javax.swing.JFrame {
         btSair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Configurações do Sistema");
         setResizable(false);
 
         painelCabMenu.setBackground(new java.awt.Color(255, 255, 255));
@@ -115,7 +114,7 @@ public class ViewMenuRecurso extends javax.swing.JFrame {
         btPercentualAtividade.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btPercentualAtividade.setForeground(new java.awt.Color(255, 255, 255));
         btPercentualAtividade.setText("Atualizar Percentuais");
-        btPercentualAtividade.setToolTipText("Click para administrar recursos");
+        btPercentualAtividade.setToolTipText("Click para atualizar percentuais de atividades");
         btPercentualAtividade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btPercentualAtividadeActionPerformed(evt);
@@ -126,7 +125,7 @@ public class ViewMenuRecurso extends javax.swing.JFrame {
         btModificarSenha.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btModificarSenha.setForeground(new java.awt.Color(255, 255, 255));
         btModificarSenha.setText("Modificar Senha");
-        btModificarSenha.setToolTipText("Click para administrar projetos");
+        btModificarSenha.setToolTipText("Click para modificar sua senha");
         btModificarSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btModificarSenhaActionPerformed(evt);
@@ -211,7 +210,7 @@ public class ViewMenuRecurso extends javax.swing.JFrame {
         btSair.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btSair.setForeground(new java.awt.Color(255, 255, 255));
         btSair.setText("Sair");
-        btSair.setToolTipText("Click para gerar relatórios");
+        btSair.setToolTipText("Click para sair do sistema");
         btSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btSairActionPerformed(evt);

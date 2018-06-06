@@ -257,7 +257,7 @@ public class ViewPercentualAtividade extends javax.swing.JFrame {
         btSalvar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btSalvar.setForeground(new java.awt.Color(0, 153, 255));
         btSalvar.setText("Alterar");
-        btSalvar.setToolTipText("Incluir ou modificar uma atividade");
+        btSalvar.setToolTipText("Modificar um percentual de atividade");
         btSalvar.setName("btSalvar"); // NOI18N
         btSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -279,7 +279,7 @@ public class ViewPercentualAtividade extends javax.swing.JFrame {
         btMenu.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btMenu.setForeground(new java.awt.Color(0, 153, 255));
         btMenu.setText("Voltar");
-        btMenu.setToolTipText("Voltar à tela de Menu");
+        btMenu.setToolTipText("Voltar à tela de menu");
         btMenu.setName("btSalvar"); // NOI18N
         btMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -290,7 +290,7 @@ public class ViewPercentualAtividade extends javax.swing.JFrame {
         btListagemAtividades.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btListagemAtividades.setForeground(new java.awt.Color(0, 153, 255));
         btListagemAtividades.setText("Listagem");
-        btListagemAtividades.setToolTipText("Listar todas as atividades");
+        btListagemAtividades.setToolTipText("Listar todos os percentuais de atividades");
         btListagemAtividades.setName("btSalvar"); // NOI18N
         btListagemAtividades.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -380,7 +380,7 @@ public class ViewPercentualAtividade extends javax.swing.JFrame {
         String listagem = "Projeto\tData início\tData fim\tAtividade\t\t\tStatus\tHoras est.";
         listagem = listagem + "\n=================================================================";
         try {
-            rs = ControllerAtividade.buscarTodasAtividades();
+            rs = ControllerAtividade.buscarAtividadesRecurso(user.getCodUser());
             while (rs.next()) {
                 listagem = listagem + "\n"
                         + rs.getString("projeto") + "\t"
@@ -390,9 +390,7 @@ public class ViewPercentualAtividade extends javax.swing.JFrame {
                         + rs.getString("status") + "\t"
                         + rs.getString("horas");
             }
-        } catch (SQLException ex) {
-            Logger.getLogger(ViewPercentualAtividade.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
+        } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(ViewPercentualAtividade.class.getName()).log(Level.SEVERE, null, ex);
         }
         ViewListagem flo = new ViewListagem(listagem, this, true);

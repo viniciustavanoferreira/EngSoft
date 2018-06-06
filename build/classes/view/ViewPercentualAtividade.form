@@ -477,7 +477,7 @@
               <Color blue="ff" green="99" red="0" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Alterar"/>
-            <Property name="toolTipText" type="java.lang.String" value="Incluir ou modificar uma atividade"/>
+            <Property name="toolTipText" type="java.lang.String" value="Modificar um percentual de atividade"/>
             <Property name="name" type="java.lang.String" value="btSalvar" noResource="true"/>
           </Properties>
           <Events>
@@ -509,7 +509,7 @@
               <Color blue="ff" green="99" red="0" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Voltar"/>
-            <Property name="toolTipText" type="java.lang.String" value="Voltar &#xe0; tela de Menu"/>
+            <Property name="toolTipText" type="java.lang.String" value="Voltar &#xe0; tela de menu"/>
             <Property name="name" type="java.lang.String" value="btSalvar" noResource="true"/>
           </Properties>
           <Events>
@@ -525,7 +525,7 @@
               <Color blue="ff" green="99" red="0" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Listagem"/>
-            <Property name="toolTipText" type="java.lang.String" value="Listar todas as atividades"/>
+            <Property name="toolTipText" type="java.lang.String" value="Listar todos os percentuais de atividades"/>
             <Property name="name" type="java.lang.String" value="btSalvar" noResource="true"/>
           </Properties>
           <Events>

@@ -62,7 +62,6 @@ public class ViewMenuAdmin extends javax.swing.JFrame {
         btSair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Configurações do Sistema");
         setResizable(false);
 
         painelCabMenu.setBackground(new java.awt.Color(255, 255, 255));
@@ -115,7 +114,7 @@ public class ViewMenuAdmin extends javax.swing.JFrame {
         btUsuario.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btUsuario.setForeground(new java.awt.Color(255, 255, 255));
         btUsuario.setText("Manter usuários");
-        btUsuario.setToolTipText("Click para administrar recursos");
+        btUsuario.setToolTipText("Click para administrar usuários");
         btUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btUsuarioActionPerformed(evt);
@@ -126,7 +125,7 @@ public class ViewMenuAdmin extends javax.swing.JFrame {
         btRelatorioUsuario.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btRelatorioUsuario.setForeground(new java.awt.Color(255, 255, 255));
         btRelatorioUsuario.setText("Relatório de usuários");
-        btRelatorioUsuario.setToolTipText("Click para administrar projetos");
+        btRelatorioUsuario.setToolTipText("Click para gerar relatório de usuários");
         btRelatorioUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btRelatorioUsuarioActionPerformed(evt);
@@ -211,7 +210,7 @@ public class ViewMenuAdmin extends javax.swing.JFrame {
         btSair.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btSair.setForeground(new java.awt.Color(255, 255, 255));
         btSair.setText("Sair");
-        btSair.setToolTipText("Click para gerar relatórios");
+        btSair.setToolTipText("Click para sair do sistema");
         btSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btSairActionPerformed(evt);

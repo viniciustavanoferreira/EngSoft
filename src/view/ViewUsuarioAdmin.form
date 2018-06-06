@@ -349,7 +349,7 @@
               <Color blue="ff" green="99" red="0" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Salvar"/>
-            <Property name="toolTipText" type="java.lang.String" value="Incluir ou modificar um projeto"/>
+            <Property name="toolTipText" type="java.lang.String" value="Incluir ou modificar um usu&#xe1;rio"/>
             <Property name="name" type="java.lang.String" value="btSalvar" noResource="true"/>
           </Properties>
           <Events>
@@ -365,7 +365,7 @@
               <Color blue="ff" green="99" red="0" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Excluir"/>
-            <Property name="toolTipText" type="java.lang.String" value="Deletar um projeto"/>
+            <Property name="toolTipText" type="java.lang.String" value="Deletar um usu&#xe1;rio"/>
             <Property name="name" type="java.lang.String" value="btSalvar" noResource="true"/>
           </Properties>
           <Events>
@@ -397,7 +397,7 @@
               <Color blue="ff" green="99" red="0" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Voltar"/>
-            <Property name="toolTipText" type="java.lang.String" value="Voltar &#xe0; tela de Menu"/>
+            <Property name="toolTipText" type="java.lang.String" value="Voltar &#xe0; tela de menu"/>
             <Property name="name" type="java.lang.String" value="btSalvar" noResource="true"/>
           </Properties>
           <Events>

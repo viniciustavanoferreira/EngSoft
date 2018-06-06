@@ -294,7 +294,7 @@ public class ViewAtividade extends javax.swing.JFrame {
         btMenu.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btMenu.setForeground(new java.awt.Color(0, 153, 255));
         btMenu.setText("Voltar");
-        btMenu.setToolTipText("Voltar à tela de Menu");
+        btMenu.setToolTipText("Voltar à tela de menu");
         btMenu.setName("btSalvar"); // NOI18N
         btMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

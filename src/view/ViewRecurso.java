@@ -166,7 +166,6 @@ public class ViewRecurso extends javax.swing.JFrame {
         lbImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/img10.png"))); // NOI18N
 
         cbUsuario.setBackground(new java.awt.Color(255, 255, 204));
-        cbUsuario.setSelectedIndex(-1);
         cbUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbUsuarioActionPerformed(evt);
@@ -299,7 +298,6 @@ public class ViewRecurso extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        tbFuncionarios.setColumnSelectionAllowed(true);
         tbFuncionarios.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         tbFuncionarios.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -364,7 +362,7 @@ public class ViewRecurso extends javax.swing.JFrame {
         btMenu.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btMenu.setForeground(new java.awt.Color(0, 153, 255));
         btMenu.setText("Voltar");
-        btMenu.setToolTipText("Voltar à tela de Menu");
+        btMenu.setToolTipText("Voltar à tela de menu");
         btMenu.setName("btSalvar"); // NOI18N
         btMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

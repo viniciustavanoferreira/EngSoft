@@ -116,7 +116,7 @@ public class ViewSenha extends javax.swing.JFrame {
         btSalvar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btSalvar.setForeground(new java.awt.Color(0, 153, 255));
         btSalvar.setText("Salvar");
-        btSalvar.setToolTipText("Incluir ou modificar um projeto");
+        btSalvar.setToolTipText("Modificar a senha");
         btSalvar.setName("btSalvar"); // NOI18N
         btSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,7 +127,7 @@ public class ViewSenha extends javax.swing.JFrame {
         btMenu.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btMenu.setForeground(new java.awt.Color(0, 153, 255));
         btMenu.setText("Voltar");
-        btMenu.setToolTipText("Voltar à tela de Menu");
+        btMenu.setToolTipText("Voltar à tela de menu");
         btMenu.setName("btSalvar"); // NOI18N
         btMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -326,6 +326,10 @@ public class ViewSenha extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Senha é obrigatório");
         } else if (this.tfConfirmaSenha.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Confirmação de senha é obrigatório");
+        } else if (this.tfSenha.getText().length() < 6) {
+            JOptionPane.showMessageDialog(this, "Senha deve possuir, no mínimo, 6 caracteres");
+        } else if (this.tfConfirmaSenha.getText().length() < 6) {
+            JOptionPane.showMessageDialog(this, "Confirmação de senha deve possuir, no mínimo, 6 caracteres");
         } else if (!this.tfConfirmaSenha.getText().equalsIgnoreCase(
                     this.tfSenha.getText())) {
             JOptionPane.showMessageDialog(this, "Senha e sua confirmação devem possuir o mesmo valor");

@@ -221,7 +221,7 @@ public class ViewUsuarioAdmin extends javax.swing.JFrame {
         btSalvar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btSalvar.setForeground(new java.awt.Color(0, 153, 255));
         btSalvar.setText("Salvar");
-        btSalvar.setToolTipText("Incluir ou modificar um projeto");
+        btSalvar.setToolTipText("Incluir ou modificar um usuário");
         btSalvar.setName("btSalvar"); // NOI18N
         btSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -232,7 +232,7 @@ public class ViewUsuarioAdmin extends javax.swing.JFrame {
         btExcluir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btExcluir.setForeground(new java.awt.Color(0, 153, 255));
         btExcluir.setText("Excluir");
-        btExcluir.setToolTipText("Deletar um projeto");
+        btExcluir.setToolTipText("Deletar um usuário");
         btExcluir.setName("btSalvar"); // NOI18N
         btExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -254,7 +254,7 @@ public class ViewUsuarioAdmin extends javax.swing.JFrame {
         btMenu.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btMenu.setForeground(new java.awt.Color(0, 153, 255));
         btMenu.setText("Voltar");
-        btMenu.setToolTipText("Voltar à tela de Menu");
+        btMenu.setToolTipText("Voltar à tela de menu");
         btMenu.setName("btSalvar"); // NOI18N
         btMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -498,6 +498,8 @@ public class ViewUsuarioAdmin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Usuário é obrigatório");
         } else if (this.tfSenha.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Senha é obrigatório");
+        } else if (this.tfSenha.getText().length() < 6) {
+            JOptionPane.showMessageDialog(this, "Senha deve possuir, no mínimo, 6 caracteres");
         } else if (this.cbPapel.getSelectedIndex() < 0) {
             JOptionPane.showMessageDialog(this, "Papel é obrigatório");
         } else if (this.tfNome.getText().isEmpty()) {
